@@ -7,10 +7,10 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "postinstall": "prisma generate"
+    "gen:local": "supabase gen types typescript > supabase/types.d.ts --local"
   },
   "dependencies": {
-    "@prisma/client": "^4.3.1",
+    "@supabase/supabase-js": "2.0.0-rc.10",
     "@trpc/client": "^9.27.2",
     "@trpc/next": "^9.27.2",
     "@trpc/react": "^9.27.2",
@@ -32,7 +32,6 @@
     "eslint": "8.22.0",
     "eslint-config-next": "12.2.5",
     "postcss": "^8.4.16",
-    "prisma": "^4.3.1",
     "tailwindcss": "^3.1.8",
     "typescript": "4.7.4"
   },

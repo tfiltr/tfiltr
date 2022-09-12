@@ -16,6 +16,7 @@ export const exampleRouter = createRouter()
   })
   .query("getAll", {
     async resolve({ ctx }) {
-      return await ctx.prisma.example.findMany();
+      const {data:example} = await ctx.supabase.from('example').select('*');
+      return example;
     },
   });
