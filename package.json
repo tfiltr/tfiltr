@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "postinstall": "prisma generate"
+    "gen:local": "supabase gen types typescript > supabase/types.d.ts --local"
   },
   "dependencies": {
     "@supabase/supabase-js": "2.0.0-rc.10",
