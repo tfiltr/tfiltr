@@ -1,5 +1,4 @@
 // src/server/db/client.ts
-//import { PrismaClient } from "@prisma/client";
 import { createClient, SupabaseClient } from "@supabase/supabase-js";
 import { Database } from "../../../supabase/types.js";
 import { env } from "../../env/server.mjs";
