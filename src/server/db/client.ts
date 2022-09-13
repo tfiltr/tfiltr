@@ -10,6 +10,6 @@ declare global {
 
 export const supabase: SupabaseClient<Database>  = global.supabase ||  createClient(env.NEXT_PUBLIC_SUPABASE_URL, env.SUPABASE_SERVICE_ROLE_KEY);
 
-if (env.NODE_ENV !== "production") {
+if (env.NODE_ENV !== 'production') {
   global.supabase = supabase;
 }

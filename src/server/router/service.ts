@@ -1,16 +1,16 @@
-import { createRouter } from "./context";
-import { z } from "zod";
+import {createRouter} from './context';
+import {z} from 'zod';
 
 export const serviceRouter = createRouter()
-  .mutation("new", {
+  .mutation('new', {
     input: z
       .object({
         name: z.string().min(3),
-        description: z.string().min(15, "description must have a minimum length of 15 characters"),
+        description: z.string().min(15, 'description must have a minimum length of 15 characters'),
       }),
     async resolve({ input, ctx }) {
 
-      console.log('test')
+      console.log('test');
       const  { data, error } = await ctx.supabase.from('Service').insert([
         {
           name: input.name,
@@ -24,7 +24,7 @@ export const serviceRouter = createRouter()
       }
     },
   })
-  .query("getAll", {
+  .query('getAll', {
     async resolve({ ctx }) {
       const {data:example} = await ctx.supabase.from('example').select('*');
       return example;

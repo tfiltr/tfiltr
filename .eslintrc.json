@@ -4,5 +4,10 @@
     "project": "./tsconfig.json"
   },
   "plugins": ["@typescript-eslint"],
-  "extends": ["next/core-web-vitals", "plugin:@typescript-eslint/recommended"]
+  "extends": ["next/core-web-vitals", "plugin:@typescript-eslint/recommended"],
+  "rules": {
+    "semi": "warn",
+    "quotes": ["warn", "single"],
+    "no-trailing-spaces": "warn"
+  }
 }
