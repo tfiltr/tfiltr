@@ -1,7 +1,7 @@
 // src/server/db/client.ts
-import { createClient, SupabaseClient } from "@supabase/supabase-js";
-import { Database } from "../../../supabase/types.js";
-import { env } from "../../env/server.mjs";
+import {createClient, SupabaseClient} from '@supabase/supabase-js';
+import {Database} from 'supabase/types';
+import {env} from 'src/env/server.mjs';
 
 declare global {
   // eslint-disable-next-line no-var

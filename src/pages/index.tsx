@@ -1,5 +1,5 @@
 import type {NextPage} from 'next';
-import {trpc} from '../utils/trpc';
+import {trpc} from 'src/utils/trpc';
 
 const Home: NextPage = () => {
   const hello = trpc.useQuery(["example.getAll"]);

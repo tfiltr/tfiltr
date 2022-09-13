@@ -9,29 +9,6 @@ export type Json =
 export interface Database {
   public: {
     Tables: {
-      Service: {
-        Row: {
-          id: string;
-          created_at: string;
-          updated_at: string;
-          name: string;
-          description: string | null;
-        };
-        Insert: {
-          id?: string;
-          created_at?: string;
-          updated_at?: string;
-          name?: string;
-          description?: string | null;
-        };
-        Update: {
-          id?: string;
-          created_at?: string;
-          updated_at?: string;
-          name?: string;
-          description?: string | null;
-        };
-      };
       example: {
         Row: {
           id: number;
@@ -47,6 +24,29 @@ export interface Database {
           id?: number;
           name?: string | null;
           created_at?: string | null;
+        };
+      };
+      Service: {
+        Row: {
+          description: string | null;
+          id: string;
+          created_at: string;
+          updated_at: string;
+          name: string;
+        };
+        Insert: {
+          description?: string | null;
+          id?: string;
+          created_at?: string;
+          updated_at?: string;
+          name?: string;
+        };
+        Update: {
+          description?: string | null;
+          id?: string;
+          created_at?: string;
+          updated_at?: string;
+          name?: string;
         };
       };
     };
