@@ -1,8 +1,8 @@
-import { createRouter } from "./context";
-import { z } from "zod";
+import {createRouter} from './context';
+import {z} from 'zod';
 
 export const exampleRouter = createRouter()
-  .query("hello", {
+  .query('hello', {
     input: z
       .object({
         text: z.string().nullish(),
@@ -10,11 +10,11 @@ export const exampleRouter = createRouter()
       .nullish(),
     resolve({ input }) {
       return {
-        greeting: `Hello to ${input?.text ?? "world"}`,
+        greeting: `Hello to ${input?.text ?? 'world'}`,
       };
     },
   })
-  .query("getAll", {
+  .query('getAll', {
     async resolve({ ctx }) {
       const {data:example} = await ctx.supabase.from('example').select('*');
       return example;
