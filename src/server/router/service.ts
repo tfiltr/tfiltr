@@ -2,6 +2,23 @@ import {createRouter} from './context';
 import {z} from 'zod';
 
 export const serviceRouter = createRouter()
+  .query('getAll', {
+    input: z
+    .object({
+      // serviceType
+      // location and radius
+      // overall rating
+      // parent service
+    }).nullable(),
+    async resolve({input, ctx}) {
+      const {data, error} = await ctx.supabase.from('Service').select('*');
+      // TODO: apply filter object
+      if (error && !data) {
+        throw error;
+      }
+      return data;
+    }
+  })
   .mutation('new', {
     input: z
       .object({
