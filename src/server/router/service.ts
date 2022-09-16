@@ -28,7 +28,7 @@ export const serviceRouter = createRouter()
     async resolve({ input, ctx }) {
 
       console.log('test');
-      const  { data, error } = await ctx.supabase.from('Service').insert([
+      const  { error } = await ctx.supabase.from('Service').insert([
         {
           name: input.name,
           description: input.description,
