@@ -1,13 +1,18 @@
 // src/pages/_app.tsx
+import { useState } from 'react';
+import type { NextComponentType, NextPage } from 'next';
+import type { AppProps } from 'next/app';
+import { withTRPC } from '@trpc/next';
 import { httpBatchLink } from '@trpc/client/links/httpBatchLink';
 import { loggerLink } from '@trpc/client/links/loggerLink';
-import { withTRPC } from '@trpc/next';
 import superjson from 'superjson';
-import type { AppRouter } from 'src/server/router';
+import { MantineProvider, ColorSchemeProvider, ColorScheme } from '@mantine/core';
+
 import 'src/styles/globals.css';
-import type { AppProps } from 'next/app';
-import type { NextComponentType, NextPage } from 'next';
-import { MantineProvider } from '@mantine/core';
+
+import type { AppRouter } from 'src/server/router';
+import Theme from 'src/styles/theme';
+
 import { RouterTransition } from 'src/components/RouterTransition';
 
 type getLayout = (page: React.ReactElement) => React.ReactNode;
@@ -22,15 +27,19 @@ type AppPropsWithLayout = AppProps & {
 
 const MyApp = ({ Component, pageProps }: AppPropsWithLayout) => {
   const getLayout: getLayout = Component.getLayout ?? ((page) => page);
-
+  const [colorScheme, setColorScheme] = useState<ColorScheme>('light');
+  const toggleColorScheme = (value?: ColorScheme) => setColorScheme(value || (colorScheme === 'dark' ? 'light' : 'dark'));
   return (
-  <MantineProvider
-    withGlobalStyles
-    withNormalizeCSS
-  >
-    <RouterTransition />
-    {getLayout(<Component {...pageProps} />)}
-  </MantineProvider>
+    <ColorSchemeProvider colorScheme={colorScheme} toggleColorScheme={toggleColorScheme}>
+      <MantineProvider
+        withGlobalStyles
+        withNormalizeCSS
+        theme={{...Theme, colorScheme}}
+      >
+        <RouterTransition />
+        {getLayout(<Component {...pageProps} />)}
+      </MantineProvider>
+    </ColorSchemeProvider>
   );
 };
 
