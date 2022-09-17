@@ -1,14 +1,37 @@
 // src/pages/_app.tsx
-import {httpBatchLink} from '@trpc/client/links/httpBatchLink';
-import {loggerLink} from '@trpc/client/links/loggerLink';
-import {withTRPC} from '@trpc/next';
-import type {AppType} from 'next/dist/shared/lib/utils';
+import { httpBatchLink } from '@trpc/client/links/httpBatchLink';
+import { loggerLink } from '@trpc/client/links/loggerLink';
+import { withTRPC } from '@trpc/next';
 import superjson from 'superjson';
-import type {AppRouter} from 'src/server/router';
+import type { AppRouter } from 'src/server/router';
 import 'src/styles/globals.css';
+import type { AppProps } from 'next/app';
+import type { NextComponentType, NextPage } from 'next';
+import { MantineProvider } from '@mantine/core';
+import { RouterTransition } from 'src/components/RouterTransition';
 
-const MyApp: AppType = ({ Component, pageProps }) => {
-  return <Component {...pageProps} />;
+type getLayout = (page: React.ReactElement) => React.ReactNode;
+
+export type NextPageWithLayout<P = unknown, IP = P> = NextPage<P, IP> & {
+  getLayout?: getLayout
+}
+
+type AppPropsWithLayout = AppProps & {
+  Component: NextPageWithLayout
+}
+
+const MyApp = ({ Component, pageProps }: AppPropsWithLayout) => {
+  const getLayout: getLayout = Component.getLayout ?? ((page) => page);
+
+  return (
+  <MantineProvider
+    withGlobalStyles
+    withNormalizeCSS
+  >
+    <RouterTransition />
+    {getLayout(<Component {...pageProps} />)}
+  </MantineProvider>
+  );
 };
 
 const getBaseUrl = () => {
@@ -59,4 +82,4 @@ export default withTRPC<AppRouter>({
    * @link https://trpc.io/docs/ssr
    */
   ssr: false,
-})(MyApp);
+})(MyApp as NextComponentType);
