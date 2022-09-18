@@ -14,6 +14,7 @@ import Theme from 'src/styles/theme';
 
 import { RouterTransition } from 'src/components/RouterTransition';
 import useColorMode from 'src/hooks/useColorMode';
+import { AuthProvider } from 'src/context/auth';
 
 type getLayout = (page: React.ReactElement) => React.ReactNode;
 
@@ -27,17 +28,19 @@ type AppPropsWithLayout = AppProps & {
 
 const MyApp = ({ Component, pageProps }: AppPropsWithLayout) => {
   const getLayout: getLayout = Component.getLayout ?? ((page) => page);
-  const {colorMode, toggleColorMode} = useColorMode();
+  const { colorMode, toggleColorMode } = useColorMode();
 
   return (
     <ColorSchemeProvider colorScheme={colorMode} toggleColorScheme={toggleColorMode}>
       <MantineProvider
         withGlobalStyles
         withNormalizeCSS
-        theme={{...Theme, colorScheme: colorMode}}
+        theme={{ ...Theme, colorScheme: colorMode }}
       >
-        <RouterTransition />
-        {getLayout(<Component {...pageProps} />)}
+        <AuthProvider>
+          <RouterTransition />
+          {getLayout(<Component {...pageProps} />)}
+        </AuthProvider>
       </MantineProvider>
     </ColorSchemeProvider>
   );
