@@ -1,5 +1,5 @@
-insert into public.example (name)
+insert into public.example (placeId, description)
 values 
-    ('test'),
-    ('test2'),
-    ('test3');
+    ('cdksjodc', 'test'),
+    ('cscscdd','test'),
+    ('csdjsjcncsn','test');
