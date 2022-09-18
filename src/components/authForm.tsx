@@ -1,13 +1,12 @@
 import { z } from 'zod';
 import { useForm, zodResolver } from '@mantine/form';
-import styled from '@emotion/styled';
-import { Button, Stack, TextInput, Container, Center } from '@mantine/core';
+import { Button, Stack, TextInput, Center } from '@mantine/core';
 
 const authFromSchema = z.object({
     email: z.string().email('Invalid email'),
 });
 
-const AuthPage = () => {
+const AuthForm = () => {
     const form = useForm({
         validate: zodResolver(authFromSchema),
         initialValues: {
@@ -33,4 +32,4 @@ const AuthPage = () => {
 };
 
 
-export default AuthPage;
+export default AuthForm;

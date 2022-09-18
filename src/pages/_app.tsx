@@ -6,6 +6,8 @@ import { httpBatchLink } from '@trpc/client/links/httpBatchLink';
 import { loggerLink } from '@trpc/client/links/loggerLink';
 import superjson from 'superjson';
 import { MantineProvider, ColorSchemeProvider } from '@mantine/core';
+import { ModalsProvider } from '@mantine/modals';
+
 
 import 'src/styles/globals.css';
 
@@ -15,6 +17,7 @@ import Theme from 'src/styles/theme';
 import { RouterTransition } from 'src/components/RouterTransition';
 import useColorMode from 'src/hooks/useColorMode';
 import { AuthProvider } from 'src/context/auth';
+import { NotificationsProvider } from '@mantine/notifications';
 
 type getLayout = (page: React.ReactElement) => React.ReactNode;
 
@@ -37,10 +40,14 @@ const MyApp = ({ Component, pageProps }: AppPropsWithLayout) => {
         withNormalizeCSS
         theme={{ ...Theme, colorScheme: colorMode }}
       >
-        <AuthProvider>
-          <RouterTransition />
-          {getLayout(<Component {...pageProps} />)}
-        </AuthProvider>
+        <NotificationsProvider>
+          <ModalsProvider>
+            <AuthProvider>
+              <RouterTransition />
+              {getLayout(<Component {...pageProps} />)}
+            </AuthProvider>
+          </ModalsProvider>
+        </NotificationsProvider>
       </MantineProvider>
     </ColorSchemeProvider>
   );
