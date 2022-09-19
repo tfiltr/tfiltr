@@ -3,7 +3,6 @@ import {trpc} from 'src/utils/trpc';
 
 const Home: NextPage = () => {
   const hello = trpc.useQuery(['example.getAll']);
-
   const { mutate } = trpc.useMutation(['service.new']);
 
   const onClick = () => {
