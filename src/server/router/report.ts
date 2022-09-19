@@ -77,4 +77,27 @@ export const reportRouter = createRouter()
 
       return data;
     },
+  })
+  .query('getQuestionsForServiceType', {
+    input: z.object({
+      serviceType: z.number(),
+    }),
+    async resolve({input, ctx}) {
+      const {data, error} = await ctx.supabase
+        .from('ReportQuestions')
+        .select(`
+        question,
+        type,
+        subheading,
+        responseOptions,
+        ReportQuestionServiceType!inner(serviceType)
+        `)
+        .eq('ReportQuestionServiceType.serviceType', input.serviceType);
+
+      if (error) {
+        throw error;
+      }
+
+      return data;
+    },
   });
