@@ -90,7 +90,9 @@ export const reportRouter = createRouter()
         type,
         subheading,
         responseOptions,
-        ReportQuestionServiceType!inner(serviceType)
+        ReportQuestionServiceType!inner(
+          serviceType
+        )
         `)
         .eq('ReportQuestionServiceType.serviceType', input.serviceType);
 
