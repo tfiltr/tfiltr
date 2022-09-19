@@ -9,6 +9,6 @@
             "matchDepTypes": ["dev-dependencies", "dependencies"],
             "groupName": "dependencies",
             "rangeStrategy": "bump"
-        },
+        }
     ]
 }
