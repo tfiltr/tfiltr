@@ -2,5 +2,11 @@ coverage:
   status:
     project:
       default:
-        target: 100%
-        threshold: 30%
+        # basic
+        target: auto
+        threshold: 0%
+        base: auto 
+        flags: 
+          - unittests
+        paths: 
+          - "src"
