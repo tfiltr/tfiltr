@@ -3,12 +3,17 @@
   "extends": [
     "config:base"
   ],
-  "lockFileMaintenance": { "enabled": true },
+  "lockFileMaintenance": {
+    "enabled": true
+  },
   "packageRules": [
-        {
-            "matchDepTypes": ["dev-dependencies", "dependencies"],
-            "groupName": "dependencies",
-            "rangeStrategy": "bump"
-        }
-    ]
+    {
+      "matchDepTypes": [
+        "dev-dependencies",
+        "dependencies"
+      ],
+      "groupName": "dependencies",
+      "rangeStrategy": "bump"
+    }
+  ]
 }
