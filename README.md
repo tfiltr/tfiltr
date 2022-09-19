@@ -1,4 +1,7 @@
-# Create T3 App
+# Tfiltr App
+
+[![codecov](https://codecov.io/gh/tfiltr/tfiltr/branch/main/graph/badge.svg?token=AVJPX2VSUH)](https://codecov.io/gh/tfiltr/tfiltr)
+[![CI](https://github.com/tfiltr/tfiltr/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/tfiltr/tfiltr/actions/workflows/ci.yml)
 
 This is an app bootstrapped according to the [init.tips](https://init.tips) stack, also known as the T3-Stack.
 
