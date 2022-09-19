@@ -1,6 +1,6 @@
 ---
 name: Work Item
-about: 'A simple Work item issues for use by org members '
+about: 'A simple Work item issues'
 title: ''
 labels: ''
 assignees: ''
