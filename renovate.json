@@ -6,8 +6,8 @@
   "lockFileMaintenance": { "enabled": true },
   "packageRules": [
         {
-            "matchDepTypes": ["dev-dependencies"],
-            "groupName": "dev dependencies",
+            "matchDepTypes": ["dev-dependencies", "dependencies"],
+            "groupName": "dependencies",
             "rangeStrategy": "bump"
         },
     ]
