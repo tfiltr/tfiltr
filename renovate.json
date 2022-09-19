@@ -15,5 +15,6 @@
       "groupName": "dependencies",
       "rangeStrategy": "bump"
     }
-  ]
+  ],
+  "stabilityDays": 7
 }
