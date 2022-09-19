@@ -9,110 +9,6 @@ export type Json =
 export interface Database {
   public: {
     Tables: {
-      ReportAnswers: {
-        Row: {
-          id: number;
-          response: string[];
-          reportQuestion: number;
-          report: string;
-          created_at: string;
-          updated_at: string;
-        };
-        Insert: {
-          id?: number;
-          response: string[];
-          reportQuestion: number;
-          report: string;
-          created_at?: string;
-          updated_at?: string;
-        };
-        Update: {
-          id?: number;
-          response?: string[];
-          reportQuestion?: number;
-          report?: string;
-          created_at?: string;
-          updated_at?: string;
-        };
-      };
-      Reports: {
-        Row: {
-          created_at: string;
-          updated_at: string;
-          id: string;
-          title: string;
-          score: number;
-          summary: string | null;
-          service: string;
-        };
-        Insert: {
-          created_at?: string;
-          updated_at?: string;
-          id?: string;
-          title: string;
-          score: number;
-          summary?: string | null;
-          service: string;
-        };
-        Update: {
-          created_at?: string;
-          updated_at?: string;
-          id?: string;
-          title?: string;
-          score?: number;
-          summary?: string | null;
-          service?: string;
-        };
-      };
-      ReportQuestionServiceType: {
-        Row: {
-          created_at: string | null;
-          updated_at: string | null;
-          serviceType: number;
-          reportQuestion: number;
-        };
-        Insert: {
-          created_at?: string | null;
-          updated_at?: string | null;
-          serviceType: number;
-          reportQuestion: number;
-        };
-        Update: {
-          created_at?: string | null;
-          updated_at?: string | null;
-          serviceType?: number;
-          reportQuestion?: number;
-        };
-      };
-      ReportQuestions: {
-        Row: {
-          id: number;
-          question: string;
-          created_at: string;
-          updated_at: string;
-          type: string;
-          subheading: string | null;
-          responseOptions: string[] | null;
-        };
-        Insert: {
-          id?: number;
-          question: string;
-          created_at?: string;
-          updated_at?: string;
-          type: string;
-          subheading?: string | null;
-          responseOptions?: string[] | null;
-        };
-        Update: {
-          id?: number;
-          question?: string;
-          created_at?: string;
-          updated_at?: string;
-          type?: string;
-          subheading?: string | null;
-          responseOptions?: string[] | null;
-        };
-      };
       ServiceTypes: {
         Row: {
           id: number;
@@ -133,47 +29,148 @@ export interface Database {
           updated_at?: string;
         };
       };
-      Services: {
+      ReportAnswers: {
         Row: {
-          description: string | null;
-          id: string;
+          id: number;
+          response: Json;
+          report: string;
+          reportQuestion: number;
           created_at: string;
           updated_at: string;
-          name: string;
-          serviceType: number;
         };
         Insert: {
-          description?: string | null;
-          id?: string;
+          id?: number;
+          response: Json;
+          report: string;
+          reportQuestion: number;
           created_at?: string;
           updated_at?: string;
-          name?: string;
-          serviceType: number;
         };
         Update: {
-          description?: string | null;
-          id?: string;
+          id?: number;
+          response?: Json;
+          report?: string;
+          reportQuestion?: number;
           created_at?: string;
           updated_at?: string;
-          name?: string;
+        };
+      };
+      ReportQuestions: {
+        Row: {
+          id: number;
+          question: string;
+          type: string;
+          subheading: string | null;
+          responseOptions: Json | null;
+          created_at: string;
+          updated_at: string;
+        };
+        Insert: {
+          id?: number;
+          question: string;
+          type: string;
+          subheading?: string | null;
+          responseOptions?: Json | null;
+          created_at?: string;
+          updated_at?: string;
+        };
+        Update: {
+          id?: number;
+          question?: string;
+          type?: string;
+          subheading?: string | null;
+          responseOptions?: Json | null;
+          created_at?: string;
+          updated_at?: string;
+        };
+      };
+      ReportQuestionServiceType: {
+        Row: {
+          serviceType: number;
+          created_at: string;
+          updated_at: string;
+          reportQuestion: number;
+        };
+        Insert: {
+          serviceType: number;
+          created_at?: string;
+          updated_at?: string;
+          reportQuestion: number;
+        };
+        Update: {
           serviceType?: number;
+          created_at?: string;
+          updated_at?: string;
+          reportQuestion?: number;
+        };
+      };
+      Reports: {
+        Row: {
+          id: string;
+          title: string;
+          score: number;
+          summary: string;
+          service: string;
+          created_at: string;
+          updated_at: string;
+        };
+        Insert: {
+          id?: string;
+          title: string;
+          score: number;
+          summary: string;
+          service: string;
+          created_at?: string;
+          updated_at?: string;
+        };
+        Update: {
+          id?: string;
+          title?: string;
+          score?: number;
+          summary?: string;
+          service?: string;
+          created_at?: string;
+          updated_at?: string;
         };
       };
       example: {
         Row: {
           id: number;
-          name: string | null;
           created_at: string | null;
+          name: string | null;
         };
         Insert: {
           id?: number;
-          name?: string | null;
           created_at?: string | null;
+          name?: string | null;
         };
         Update: {
           id?: number;
-          name?: string | null;
           created_at?: string | null;
+          name?: string | null;
+        };
+      };
+      Service: {
+        Row: {
+          id: string;
+          created_at: string;
+          updated_at: string;
+          name: string;
+          description: string | null;
+        };
+        Insert: {
+          id?: string;
+          created_at?: string;
+          updated_at?: string;
+          name?: string;
+          description?: string | null;
+        };
+        Update: {
+          id?: string;
+          created_at?: string;
+          updated_at?: string;
+          name?: string;
+          description?: string | null;
         };
       };
     };

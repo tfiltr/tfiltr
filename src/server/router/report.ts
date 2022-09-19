@@ -57,4 +57,24 @@ export const reportRouter = createRouter()
 
       return data;
     }
+  })
+  .mutation('newReport', {
+    input: z.object({
+      title: z.string(),
+      score: z.number(),
+      summary: z.string(),
+      service: z.string().uuid(),
+    }),
+    async resolve({input, ctx}) {
+      const {data, error} = await ctx.supabase
+        .from('Reports')
+        .insert(input)
+        .select();
+
+      if (error) {
+        throw error;
+      }
+
+      return data;
+    },
   });
