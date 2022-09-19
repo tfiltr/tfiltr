@@ -13,6 +13,7 @@
     "gen:local": "supabase gen types typescript > supabase/types.d.ts --local",
     "db:diff": "supabase db diff"
   },
+  "packageManager": "pnpm@7.12.0",
   "dependencies": {
     "@supabase/supabase-js": "2.0.0-rc.10",
     "@trpc/client": "^9.27.2",
