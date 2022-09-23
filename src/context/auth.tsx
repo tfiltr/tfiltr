@@ -8,7 +8,11 @@ interface AuthContext {
     authLoading: boolean;
 }
 
-const AuthContext = createContext<AuthContext | null>(null);
+const AuthContext = createContext<AuthContext>({
+    session: null,
+    user: undefined,
+    authLoading: false
+});
 
 interface AuthProviderProps {
     children: React.ReactFragment,

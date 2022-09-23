@@ -14,7 +14,7 @@ specifiers:
   '@mantine/notifications': ^5.3.3
   '@mantine/nprogress': ^5.3.3
   '@mantine/spotlight': ^5.3.3
-  '@supabase/auth-helpers-nextjs': ^0.2.8
+  '@supabase/auth-helpers-nextjs': 0.4.0-next.3
   '@supabase/auth-helpers-react': ^0.2.4
   '@supabase/auth-ui-react': ^0.2.0
   '@supabase/supabase-js': 2.0.0-rc.10
@@ -65,7 +65,7 @@ dependencies:
   '@mantine/notifications': 5.4.0_4nihu2fnob2c2gd6dzqgplmj4m
   '@mantine/nprogress': 5.4.0_4nihu2fnob2c2gd6dzqgplmj4m
   '@mantine/spotlight': 5.4.0_4nihu2fnob2c2gd6dzqgplmj4m
-  '@supabase/auth-helpers-nextjs': 0.2.8
+  '@supabase/auth-helpers-nextjs': 0.4.0-next.3
   '@supabase/auth-helpers-react': 0.2.4
   '@supabase/auth-ui-react': 0.2.0_biqbaboplfbrettd7655fr4n2y
   '@supabase/supabase-js': 2.0.0-rc.10
@@ -1110,10 +1110,10 @@ packages:
       react: 18.2.0
     dev: false
 
-  /@supabase/auth-helpers-nextjs/0.2.8:
-    resolution: {integrity: sha512-lGHHKkIHxEoTj6b2MJOdUGOU7rD+S/X+S0WtEnD4HD6d/Ku19UjUrR7AExE0Fa+tbTDfY1BY0o0ELn/yLNeAYQ==}
+  /@supabase/auth-helpers-nextjs/0.4.0-next.3:
+    resolution: {integrity: sha512-WfYHNTPK3SNfotaYXNxrrn39nmKrbyt0yzp+sAr+VA1PEpNQKutilIqvGSFDq+6laaYUVtMSLsoAcuTPI62WYQ==}
     dependencies:
-      '@supabase/auth-helpers-shared': 0.1.4
+      '@supabase/auth-helpers-shared': 0.2.0-next.2
     dev: false
 
   /@supabase/auth-helpers-react/0.2.4:
@@ -1126,6 +1126,12 @@ packages:
     resolution: {integrity: sha512-5jsy8pxrdFIBjcpGWihBb1gsiK2WMO8lKKnNlrZCgAzTdC/rZHVnYs7zK8yaLyoHidLfp6N5ZnocJUm7ZKSABQ==}
     dependencies:
       jose: 4.9.3
+    dev: false
+
+  /@supabase/auth-helpers-shared/0.2.0-next.2:
+    resolution: {integrity: sha512-e+u5EuMgQoLVP4cHXdv22V4L7seSKObZVCtkkBT+eqOuHVuJlc/VDM7PYoJVX57gZoUl1Gi1TuZ+ZO70CYgG6A==}
+    dependencies:
+      cookie: 0.5.0
     dev: false
 
   /@supabase/auth-ui-react/0.2.0_biqbaboplfbrettd7655fr4n2y:
@@ -1983,6 +1989,11 @@ packages:
     resolution: {integrity: sha512-+OQdjP49zViI/6i7nIJpA8rAl4sV/JdPfU9nZs3VqOwGIgizICvuN2ru6fMd+4llL0tar18UYJXfZ/TWtmhUjA==}
     dependencies:
       safe-buffer: 5.1.2
+
+  /cookie/0.5.0:
+    resolution: {integrity: sha512-YZ3GUyn/o8gfKJlnlX7g7xq4gyO6OSuhGPKaaGssGB2qgDUS0gPgtTvoyZLTt9Ab6dC4hfc9dV5arkvc/OCmrw==}
+    engines: {node: '>= 0.6'}
+    dev: false
 
   /copy-anything/3.0.2:
     resolution: {integrity: sha512-CzATjGXzUQ0EvuvgOCI6A4BGOo2bcVx8B+eC2nF862iv9fopnPQwlrbACakNCHRIJbCSBj+J/9JeDf60k64MkA==}

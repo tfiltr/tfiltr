@@ -1,6 +1,7 @@
 import { Center, Group, Header, Title } from '@mantine/core';
 import styled from '@emotion/styled';
 import ToggleColorModeButton from './ToggleColorModeButton';
+import ProfileInfoButton from './ProfileInfoButton';
 
 const AppHeader = () => {
     return (
@@ -9,7 +10,10 @@ const AppHeader = () => {
                 <Title order={2}>
                     Tfiltr
                 </Title>
-                <ToggleColorModeButton />
+                <Group position='right' align='center' >
+                    <ToggleColorModeButton />
+                    <ProfileInfoButton />
+                </Group>
             </Group>
         </StyledHeader>
     );
@@ -22,6 +26,7 @@ const StyledHeader = styled(Header)`
         height: 100%;
     }
 `;
+
 
 
 export default AppHeader;
