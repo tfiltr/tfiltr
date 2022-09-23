@@ -1,14 +1,46 @@
 // src/pages/_app.tsx
-import {httpBatchLink} from '@trpc/client/links/httpBatchLink';
-import {loggerLink} from '@trpc/client/links/loggerLink';
-import {withTRPC} from '@trpc/next';
-import type {AppType} from 'next/dist/shared/lib/utils';
+import type { NextComponentType, NextPage } from 'next';
+import type { AppProps } from 'next/app';
+import { withTRPC } from '@trpc/next';
+import { httpBatchLink } from '@trpc/client/links/httpBatchLink';
+import { loggerLink } from '@trpc/client/links/loggerLink';
 import superjson from 'superjson';
-import type {AppRouter} from 'src/server/router';
+import { MantineProvider, ColorSchemeProvider } from '@mantine/core';
+
 import 'src/styles/globals.css';
 
-const MyApp: AppType = ({ Component, pageProps }) => {
-  return <Component {...pageProps} />;
+import type { AppRouter } from 'src/server/router';
+import Theme from 'src/styles/theme';
+
+import { RouterTransition } from 'src/components/RouterTransition';
+import useColorMode from 'src/hooks/useColorMode';
+
+type getLayout = (page: React.ReactElement) => React.ReactNode;
+
+export type NextPageWithLayout<P = unknown, IP = P> = NextPage<P, IP> & {
+  getLayout?: getLayout
+}
+
+type AppPropsWithLayout = AppProps & {
+  Component: NextPageWithLayout
+}
+
+const MyApp = ({ Component, pageProps }: AppPropsWithLayout) => {
+  const getLayout: getLayout = Component.getLayout ?? ((page) => page);
+  const {colorMode, toggleColorMode} = useColorMode();
+
+  return (
+    <ColorSchemeProvider colorScheme={colorMode} toggleColorScheme={toggleColorMode}>
+      <MantineProvider
+        withGlobalStyles
+        withNormalizeCSS
+        theme={{...Theme, colorScheme: colorMode}}
+      >
+        <RouterTransition />
+        {getLayout(<Component {...pageProps} />)}
+      </MantineProvider>
+    </ColorSchemeProvider>
+  );
 };
 
 const getBaseUrl = () => {
@@ -59,4 +91,4 @@ export default withTRPC<AppRouter>({
    * @link https://trpc.io/docs/ssr
    */
   ssr: false,
-})(MyApp);
+})(MyApp as NextComponentType);
