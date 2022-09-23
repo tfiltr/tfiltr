@@ -9,10 +9,14 @@ specifiers:
   '@mantine/dates': ^5.3.3
   '@mantine/form': ^5.3.3
   '@mantine/hooks': ^5.3.3
+  '@mantine/modals': ^5.3.3
   '@mantine/next': ^5.3.3
   '@mantine/notifications': ^5.3.3
   '@mantine/nprogress': ^5.3.3
   '@mantine/spotlight': ^5.3.3
+  '@supabase/auth-helpers-nextjs': 0.4.0-next.3
+  '@supabase/auth-helpers-react': ^0.2.4
+  '@supabase/auth-ui-react': ^0.2.0
   '@supabase/supabase-js': 2.0.0-rc.10
   '@tabler/icons': ^1.96.0
   '@testing-library/react': ^13.4.0
@@ -56,12 +60,16 @@ dependencies:
   '@mantine/dates': 5.4.0_agnxxn4gdlpmzvqyxbks5w2vau
   '@mantine/form': 5.4.0_react@18.2.0
   '@mantine/hooks': 5.4.0_react@18.2.0
+  '@mantine/modals': 5.4.0_4nihu2fnob2c2gd6dzqgplmj4m
   '@mantine/next': 5.4.0_4hxywcmnt2wfwqfr6zatdxiv5i
   '@mantine/notifications': 5.4.0_4nihu2fnob2c2gd6dzqgplmj4m
   '@mantine/nprogress': 5.4.0_4nihu2fnob2c2gd6dzqgplmj4m
   '@mantine/spotlight': 5.4.0_4nihu2fnob2c2gd6dzqgplmj4m
+  '@supabase/auth-helpers-nextjs': 0.4.0-next.3
+  '@supabase/auth-helpers-react': 0.2.4
+  '@supabase/auth-ui-react': 0.2.0_biqbaboplfbrettd7655fr4n2y
   '@supabase/supabase-js': 2.0.0-rc.10
-  '@tabler/icons': 1.96.0_biqbaboplfbrettd7655fr4n2y
+  '@tabler/icons': 1.99.0_biqbaboplfbrettd7655fr4n2y
   '@trpc/client': 9.27.2_@trpc+server@9.27.2
   '@trpc/next': 9.27.2_uxi3fykuxaglbetcrbfd4dokya
   '@trpc/react': 9.27.2_e7pohnznr4qdgpqc5x4q3pmfcu
@@ -710,6 +718,21 @@ packages:
       react: 18.2.0
     dev: false
 
+  /@mantine/modals/5.4.0_4nihu2fnob2c2gd6dzqgplmj4m:
+    resolution: {integrity: sha512-97/QRk6naClKPXIkQ7JbvCM6CRZuPy/+kj6LbskQOklSvDRMsPmvR4C87gapbwqdWfhskhUi6HDkBiaoMjG1SQ==}
+    peerDependencies:
+      '@mantine/core': 5.4.0
+      '@mantine/hooks': 5.4.0
+      react: '>=16.8.0'
+      react-dom: '>=16.8.0'
+    dependencies:
+      '@mantine/core': 5.4.0_oihobwhbj453cnyslcmpoj2bia
+      '@mantine/hooks': 5.4.0_react@18.2.0
+      '@mantine/utils': 5.4.0_react@18.2.0
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+    dev: false
+
   /@mantine/next/5.4.0_4hxywcmnt2wfwqfr6zatdxiv5i:
     resolution: {integrity: sha512-DN5ShE/F0meDokI8ANYPZjRh7S0DPgmPnppDXhbPf2FYj7+BCE/xOJdgMJ66qbkt66UqASyA9hk8WSSiEJ7bqw==}
     peerDependencies:
@@ -1075,6 +1098,58 @@ packages:
     resolution: {integrity: sha512-LwzQKA4vzIct1zNZzBmRKI9QuNpLgTQMEjsQLf3BXuGYb3QPTP4Yjf6mkdX+X1mYttZ808QpOwAzZjv28kq7DA==}
     dev: true
 
+  /@stitches/core/1.2.8:
+    resolution: {integrity: sha512-Gfkvwk9o9kE9r9XNBmJRfV8zONvXThnm1tcuojL04Uy5uRyqg93DC83lDebl0rocZCfKSjUv+fWYtMQmEDJldg==}
+    dev: false
+
+  /@stitches/react/1.2.8_react@18.2.0:
+    resolution: {integrity: sha512-9g9dWI4gsSVe8bNLlb+lMkBYsnIKCZTmvqvDG+Avnn69XfmHZKiaMrx7cgTaddq7aTPPmXiTsbFcUy0xgI4+wA==}
+    peerDependencies:
+      react: '>= 16.3.0'
+    dependencies:
+      react: 18.2.0
+    dev: false
+
+  /@supabase/auth-helpers-nextjs/0.4.0-next.3:
+    resolution: {integrity: sha512-WfYHNTPK3SNfotaYXNxrrn39nmKrbyt0yzp+sAr+VA1PEpNQKutilIqvGSFDq+6laaYUVtMSLsoAcuTPI62WYQ==}
+    dependencies:
+      '@supabase/auth-helpers-shared': 0.2.0-next.2
+    dev: false
+
+  /@supabase/auth-helpers-react/0.2.4:
+    resolution: {integrity: sha512-o/6VcnkCQnlPFBOVVlmk5w37fhlalDZKxPV9w5eYwgM4uzg1FwH6b70YNuOhA3EwCcy/S8e3pKVEsKAx/LjFcA==}
+    dependencies:
+      '@supabase/auth-helpers-shared': 0.1.4
+    dev: false
+
+  /@supabase/auth-helpers-shared/0.1.4:
+    resolution: {integrity: sha512-5jsy8pxrdFIBjcpGWihBb1gsiK2WMO8lKKnNlrZCgAzTdC/rZHVnYs7zK8yaLyoHidLfp6N5ZnocJUm7ZKSABQ==}
+    dependencies:
+      jose: 4.9.3
+    dev: false
+
+  /@supabase/auth-helpers-shared/0.2.0-next.2:
+    resolution: {integrity: sha512-e+u5EuMgQoLVP4cHXdv22V4L7seSKObZVCtkkBT+eqOuHVuJlc/VDM7PYoJVX57gZoUl1Gi1TuZ+ZO70CYgG6A==}
+    dependencies:
+      cookie: 0.5.0
+    dev: false
+
+  /@supabase/auth-ui-react/0.2.0_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-1m9nCNEJtBgF3W9vcNotVwrPzdUovpseEYkSowLiZU4tZvU3qLJXE/Rc8otabDvvvrbRBEN97p/QcX6edi4rDQ==}
+    peerDependencies:
+      react: ^16.13.1 || ^17.0.1
+      react-dom: ^16.13.1 || ^17.0.1
+    dependencies:
+      '@stitches/core': 1.2.8
+      '@stitches/react': 1.2.8_react@18.2.0
+      lodash: 4.17.21
+      prop-types: 15.8.1
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+    optionalDependencies:
+      fsevents: 2.3.2
+    dev: false
+
   /@supabase/functions-js/2.0.0-rc.1:
     resolution: {integrity: sha512-cYFaSA28NoTREM4ZrHWaxXjElfY0S8umrjoffTbmI4Rgkg8+4raBnQIi52usfr5MuFpy566vhbLNOcP9kNHjOw==}
     dependencies:
@@ -1136,8 +1211,8 @@ packages:
       tslib: 2.4.0
     dev: false
 
-  /@tabler/icons/1.96.0_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-ZAQ64CHi5sOFQE7COoBmZbhIBtTX+4XNuiVZsr8kcqJX1bmrw6dFU0W9ONJamt/2TO997uVfSqxr2o0WZqZr/g==}
+  /@tabler/icons/1.99.0_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-H0+QJ6DtAhvK+u63FTjSMHQlvKNyA3Z8a1GCYUvi2FTIOaQmAXxJWfzZrHJLaqfs0DcG/L6Qcop1GyjRz5I9sQ==}
     peerDependencies:
       react: ^16.x || 17.x || 18.x
       react-dom: ^16.x || 17.x || 18.x
@@ -1444,9 +1519,7 @@ packages:
       eslint-visitor-keys: 3.3.0
     dev: true
 
-
   /@vitejs/plugin-react/2.1.0_vite@3.1.3:
-
     resolution: {integrity: sha512-am6rPyyU3LzUYne3Gd9oj9c4Rzbq5hQnuGXSMT6Gujq45Il/+bunwq3lrB7wghLkiF45ygMwft37vgJ/NE8IAA==}
     engines: {node: ^14.18.0 || >=16.0.0}
     peerDependencies:
@@ -1916,6 +1989,11 @@ packages:
     resolution: {integrity: sha512-+OQdjP49zViI/6i7nIJpA8rAl4sV/JdPfU9nZs3VqOwGIgizICvuN2ru6fMd+4llL0tar18UYJXfZ/TWtmhUjA==}
     dependencies:
       safe-buffer: 5.1.2
+
+  /cookie/0.5.0:
+    resolution: {integrity: sha512-YZ3GUyn/o8gfKJlnlX7g7xq4gyO6OSuhGPKaaGssGB2qgDUS0gPgtTvoyZLTt9Ab6dC4hfc9dV5arkvc/OCmrw==}
+    engines: {node: '>= 0.6'}
+    dev: false
 
   /copy-anything/3.0.2:
     resolution: {integrity: sha512-CzATjGXzUQ0EvuvgOCI6A4BGOo2bcVx8B+eC2nF862iv9fopnPQwlrbACakNCHRIJbCSBj+J/9JeDf60k64MkA==}
@@ -2936,7 +3014,6 @@ packages:
     engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
     os: [darwin]
     requiresBuild: true
-    dev: true
     optional: true
 
   /function-bind/1.1.1:
@@ -3415,6 +3492,10 @@ packages:
       istanbul-lib-report: 3.0.0
     dev: true
 
+  /jose/4.9.3:
+    resolution: {integrity: sha512-f8E/z+T3Q0kA9txzH2DKvH/ds2uggcw0m3vVPSB9HrSkrQ7mojjifvS7aR8cw+lQl2Fcmx9npwaHpM/M3GD8UQ==}
+    dev: false
+
   /js-sdsl/4.1.4:
     resolution: {integrity: sha512-Y2/yD55y5jteOAmY50JbUZYwk3CP3wnLPEZnlR1w9oKhITrBEtAxwuWKebFf8hMrPMgbYwFoWK/lH2sBkErELw==}
     dev: true
@@ -3567,6 +3648,10 @@ packages:
   /lodash.merge/4.6.2:
     resolution: {integrity: sha512-0KpjqXRVvrYyCsX1swR/XTK0va6VQkQM6MNo7PqW77ByjAhoARA8EfrP1N4+KlKj8YS0ZUCtRT/YUuhyYDujIQ==}
     dev: true
+
+  /lodash/4.17.21:
+    resolution: {integrity: sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==}
+    dev: false
 
   /loose-envify/1.4.0:
     resolution: {integrity: sha512-lyuxPGr/Wfhrlem2CL/UcnUc1zcqKAImBDzukY7Y5F/yQiNdko6+fRLevlw1HgMySw7f611UIY408EtxRSoK3Q==}
