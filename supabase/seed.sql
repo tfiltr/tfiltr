@@ -1,5 +1,5 @@
-insert into public.example (name)
-values 
-    ('test'),
-    ('test2'),
-    ('test3');
+insert into public."Service" ("placeId", description)
+values
+ ('cdksjodc', 'test'),
+    ('cscscdd','test'),
+    ('csdjsjcncsn','test');
