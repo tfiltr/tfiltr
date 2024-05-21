@@ -26,7 +26,10 @@ export const serviceRouter = createRouter()
   })
   .query('getAll', {
     async resolve({ ctx }) {
-      const {data:example} = await ctx.supabase.from('example').select('*');
+      const {data:example} = await ctx.supabase
+        .from('ReportAnswers')
+        .select('ReportQuestions:report_question ( type )')
+        .eq('id', 1);
       return example;
     },
   });
